@@ -1,0 +1,20 @@
+function findSubstring(s, k) {
+    // Write your code here
+    var givenString = s;
+    var resultantObj = {}
+    for(var i =0; i<givenString.length - k; i++){
+        var substring = givenString.substring(i,k);
+        //get array of vowels
+        var count = substring.match(/[aeiou]/gi);
+        resultantObj[substring] = (count === null) ? 0 : count.length
+    }
+   var max= Object.keys(resultantObj).reduce(
+        function(num1, num2){
+            return resultantObj[num1] > resultantObj[num2] ? num1 : num2;
+        }
+    )
+
+    return max;
+}
+
+findSubstring("azerdii", 5);
