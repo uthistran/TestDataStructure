@@ -491,20 +491,64 @@ var obj = [{
 
 // isValid('{}[]()');
 
-var totalNQueens = function(N) {
-  let ans = 0
+// var totalNQueens = function(N) {
+//   let ans = 0
 
-  const place = (i, vert, ldiag, rdiag) => {
-      if (i === N) ans++
-      else for (let j = 0; j < N; j++) {
-          let vmask = 1 << j, lmask = 1 << (i+j), rmask = 1 << (N-i-1+j)
-          if (vert & vmask || ldiag & lmask || rdiag & rmask) continue
-          place(i+1, vert | vmask, ldiag | lmask, rdiag | rmask)
-      }
-  }
+//   const place = (i, vert, ldiag, rdiag) => {
+//       if (i === N) ans++
+//       else for (let j = 0; j < N; j++) {
+//           let vmask = 1 << j, lmask = 1 << (i+j), rmask = 1 << (N-i-1+j)
+//           if (vert & vmask || ldiag & lmask || rdiag & rmask) continue
+//           place(i+1, vert | vmask, ldiag | lmask, rdiag | rmask)
+//       }
+//   }
 
-  place(0,0,0,0)
-  return ans
-};
+//   place(0,0,0,0)
+//   return ans
+// };
 
-totalNQueens(4);
+// totalNQueens(4);
+
+// function solution(n) {
+//   var seperatedNumber = n.toString().split('');
+//   return seperatedNumber.reduce((total, num)=> Number(total) + Number(num))
+//  }
+
+//  console.log(solution(291));
+
+// function solution(nCols, nRows, col, row) {
+//   var total = nCols * nRows;
+//   var remainingcolsseat = (col -1) * nRows;
+//   var remaingrowSeat = row * (nCols);
+//   return total - (remaingrowSeat + remainingcolsseat - ((col-1)*row));
+// }
+
+// solution(16,11,5,3)
+
+// function solution(n, firstNumber) {
+//   var straight = Array.from(Array(n).keys());
+//   var reverse = [...straight].reverse();
+  
+//   var index = straight.indexOf(firstNumber);
+//   return reverse[index]
+// }
+
+// solution(10,7)
+
+// function solution(n) {
+//   var hour = Math.floor(n/60);
+//   var minute = n%60;
+//   var total = hour.toString() + minute.toString();
+
+//   return total.split('').reduce((a,b) => Number(a)+Number(b))
+
+// }
+
+// console.log(solution(808));
+
+function solution(min1, min2_10, min11, s) {
+
+}
+
+solution(3,1,2,20);
+ 
