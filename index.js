@@ -547,8 +547,43 @@ var obj = [{
 // console.log(solution(808));
 
 function solution(min1, min2_10, min11, s) {
-
+  var outmins = 0;
+  if(s>= min1) {outmins += 1; s -= min1}
+  if(s>= min2_10) {
+    var t = Math.min(9, s/min2_10)
+   outmins += t; 
+   s -= (min2_10*t)}
+  if(s>= min11) {
+    outmins += s/min11
+  }
+  Math.floor(outmins);
+  return outmins
 }
 
-solution(3,1,2,20);
+console.log(solution(10,1,2,22));
+
+
+const https = require('https');
+
+https.get('https://jsonplaceholder.typicode.com/users', res => {
+  let data = [];
+  const headerDate = res.headers && res.headers.date ? res.headers.date : 'no response date';
+  console.log('Status Code:', res.statusCode);
+  console.log('Date in Response header:', headerDate);
+
+  res.on('data', chunk => {
+    data.push(chunk);
+  });
+
+  res.on('end', () => {
+    console.log('Response ended: ');
+    const users = JSON.parse(Buffer.concat(data).toString());
+
+    for(user of users) {
+      console.log(`Got user with id: ${user.id}, name: ${user.name}`);
+    }
+  });
+}).on('error', err => {
+  console.log('Error: ', err.message);
+});
  
